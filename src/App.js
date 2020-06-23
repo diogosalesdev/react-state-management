@@ -1,26 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import Toggle from './Toggle';
+import {ToggleProvider} from './ContextProvider';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ToggleProvider>
+      <Toggle />
+    </ToggleProvider>
   );
+};
+
+
+/* USING CLASS
+class Toggle extends Component {
+  state = {
+    toggle: false
+  };
+
+  handleToggle = () => {
+    this.setState(prevState => {
+      return {
+        toggle: !prevState.toggle
+      };
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        <p>The Status is: {this.state.toggle ? "ON" : "OFF"} </p>
+        <button onClick={this.handleToggle}>Toggle</button>
+      </div>
+    );
+  }
 }
+*/
 
 export default App;
